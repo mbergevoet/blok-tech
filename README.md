@@ -1,13 +1,5 @@
-<<<<<<< HEAD
+
 # README
 
-# Heel belangrijk dit
+Very important file allthough I don't yet understand why exactly
 
-
-=======
-# blok-tech
-
-# wiki 
-
-## Desk research
->>>>>>> 1d245d71b9e5bb509bc358a355ae3963ef33f376
