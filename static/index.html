@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Matchmaking</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+    <header>
+        <div><img src="images/amatch-logo.png" alt=""></div>
+        <nav>
+            <ul>
+                <li><a href="myprofile.html">My Profile</a></li>
+                <li><a href="mychats.html">My Chats</a></li>
+                <li><a href="index.html">Matchmaking</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form accept-charset="UTF-8" action="action_page.php" autocomplete="off" method="GET" target="_blank">
+               <legend>Zoeken op:</legend>
+                <label for="hobby">*Hobby 1</label>
+                <input name="hobby1" type="text" placeholder="Hobby van toekomstige match"/>
+                <label for="hobby">Hobby 2</label>
+                <input name="hobby2" type="text" placeholder="Hobby van toekomstige match"/>
+                <label for="hobby">Hobby 3</label>
+                <input name="hobby3" type="text" placeholder="Hobby van toekomstige match"/>
+                <label for="sex">*Man</label>
+                <input name="sex" type="radio" value="male" />
+                <label for="sex">*Vrouw</label>
+                <input name="sex" type="radio" value="female" />
+                <label for="sex">*Beide</label>
+                <input name="sex" type="radio" value="both" />
+                <label for="age">*Minimum leeftijd</label>
+                <select>
+                    <option selected="selected" value="1">Leeftijd</option>
+                    <option value="2">18</option>
+                    <option value="3">19</option>
+                    <option value="4">20</option>
+                    <option value="5">21</option>
+                    <option value="6">22</option>
+                    <option value="7">23</option>
+                    <option value="8">24</option>
+                    <option value="9">25</option>
+                    <option value="10">26</option>
+                    <option value="11">27</option>
+                    <option value="12">28</option>
+                    <option value="13">29</option>
+                    <option value="14">30</option>
+                </select>
+                <p>*verplicht veld</p>
+                <button type="submit" value="Submit">Submit</button>
+
+        </form>
+    </main>
+    <footer>
+        <section>
+            <p>Indeling en Styling door Merlijn Bergevoet 2020 &copy;</p>
+        </section>
+    </footer>
+</body>
+
+</html>
