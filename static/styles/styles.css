@@ -135,16 +135,39 @@ main #searchForm, main section{
 }
 
 #filterBar{
-
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 1rem;
 }
 
 #filterForm{
-    background-color: white;
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
 }
 
 #filterForm > *{
-    padding: 1rem;
+    padding: 0rem 1rem;
+}
+
+#checkboxContainer label{
+    padding-right: 3rem;
+    font-size: 1.3rem;
+}
+
+#checkboxContainer input{
+    width: 1rem;
+    height: 1rem;
+}
+
+#disabledDropdown{
+    display: none;
+}
+
+#disabledDropdown input:valid{
+    display: block;
 }
 
 #profileTile, #profileTile > *{
