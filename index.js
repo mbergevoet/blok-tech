@@ -1,20 +1,22 @@
 var express = require('express')
 var app = express()
 const port = 8000;
-// var data = [
-//   {
-//     id: 'evil-dead',
-//     title: 'Evil Dead',
-//     plot: 'Five friends travel to a cabin in the …',
-//     description: 'Five friends head to a remote …'
-//   },
-//   {
-//     id: 'the-shawshank-redemption',
-//     title: 'The Shawshank Redemption',
-//     plot: 'Two imprisoned men bond over a number …',
-//     description: 'Andy Dufresne is a young and  …'
-//   }
-// ]
+
+var data = [
+  {
+    id: 'evil-dead',
+    title: 'Evil Dead',
+    plot: 'Five friends travel to a cabin in the …',
+    description: 'Five friends head to a remote …'
+  },
+  {
+    id: 'the-shawshank-redemption',
+    title: 'The Shawshank Redemption',
+    plot: 'Two imprisoned men bond over a number …',
+    description: 'Andy Dufresne is a young and  …'
+  }
+]
+
 express()
   .use(express.static('static'))
   .set('view engine', 'ejs')
@@ -22,6 +24,9 @@ express()
   .use('/static', express.static('static'))
   
 app.get('/', (req, res) =>
-  res.render('main.ejs'))
+  res.render('main.ejs', {data: data}))
+
+app.get('/', (req, res, next) =>
+  res.render('details.ejs', {data: data}))
 
 app.listen(port, () => console.log('Example app listening on port ${ port }!'))
