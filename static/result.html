@@ -10,26 +10,46 @@
 
 <body>
     <header>
-            <div><img src="images/amatch-logo.png" alt=""></div>
-            <nav>
-                <ul>
-                    <li><a href="myprofile.html">My Profile</a></li>
-                    <li><a href="mychats.html">My Chats</a></li>
-                    <li><a href="index.html">Matchmaking</a></li>
-                </ul>
-            </nav>
+        <div><img src="images/amatch-logo.png" alt=""></div>
+        <nav>
+            <ul>
+                <li><a href="myprofile.html">My Profile</a></li>
+                <li><a href="mychats.html">My Chats</a></li>
+                <li><a href="index.html">Matchmaking</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
-<!--Filter balk-->
-        <div>
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
+        <!--Filter balk-->
+        <div id="filterBar">
+            <form id="filterForm" accept-charset="UTF-8" action="result.html" autocomplete="off" method="GET" target="_blank">
+                <label for="hobby1">Hobby 1</label>
+                <input type="checkbox">
+                <label for="hobby2">Hobby 2</label>
+                <input type="checkbox">
+                <label for="hobby3">Hobby 3</label>
+                <input type="checkbox">
+            </form>
         </div>
-<!--Profiel resultaten-->
-
+        <!--Profiel resultaten-->
+        <div id="matchList">
+            <div id="profileTile" class="resultTile">
+                <img src="images/frauw.png" alt="man">
+                <div>
+                    <h1>Claire, 25</h1>
+                    <p><span>Hobby's:</span> Fotografie, Schrijven, Wandelen</p>
+                    <p><span>Opleiding:</span> Journalistiek</p>
+                </div>
+            </div>
+            <div id="profileTile"  class="resultTile">
+                <img src="images/frauw.png" alt="man">
+                <div>
+                    <h1>Claire, 25</h1>
+                    <p><span>Hobby's:</span> Fotografie, Schrijven, Wandelen</p>
+                    <p><span>Opleiding:</span> Journalistiek</p>
+                </div>
+            </div>
+        </div>
     </main>
     <footer>
         <section>
