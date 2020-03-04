@@ -153,21 +153,13 @@ main #searchForm, main section{
 }
 
 #checkboxContainer label{
-    padding-right: 3rem;
+    padding-right: 1rem;
     font-size: 1.3rem;
 }
 
 #checkboxContainer input{
     width: 1rem;
     height: 1rem;
-}
-
-#disabledDropdown{
-    display: none;
-}
-
-#disabledDropdown input:valid{
-    display: block;
 }
 
 #profileTile, #profileTile > *{
@@ -186,7 +178,6 @@ main #searchForm, main section{
 #profileTile div{
     background-color: white;
     padding: 2rem;
-    /* border-radius: 10px; */
 }
 
 #profileTile div > *{
@@ -225,6 +216,14 @@ footer section p {
     color: #ffbace;
     padding: 1.5rem 0rem;
 }
+
+#disabledDropdown{
+    display: none;
+}
+
+/* .active{
+    display: block;
+} */
 
 @media screen and (min-width: 350px) {
 
@@ -273,9 +272,11 @@ footer section p {
         box-shadow: 4px 4px 20px -4px rgba(0, 0, 0, 0.75);
     }
 
-    /* #profileTile img{
-        padding-top: 2rem;
-    } */
+    #filterForm{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
 
 }
 

@@ -29,4 +29,4 @@ app.get('/', (req, res) =>
 app.get('/', (req, res, next) =>
   res.render('details.ejs', {data: data}))
 
-app.listen(port, () => console.log('Example app listening on port ${ port }!'))
+app.listen(port, () => console.log(`Example app listening on port ${ port }!`))
