@@ -10,7 +10,7 @@
 
 <body>
     <header>
-        <div><img src="images/amatch-logo.png" alt=""></div>
+        <div><img src="images/amatch-logo2.png" alt=""></div>
         <nav>
             <ul>
                 <li><a href="myprofile.html">My Profile</a></li>
@@ -20,39 +20,106 @@
         </nav>
     </header>
     <main>
-        <form id="searchForm" accept-charset="UTF-8" action="result.html" autocomplete="off" method="GET" target="_blank">
-               <legend>Zoeken op:</legend>
-                <label for="hobby">*Hobby 1</label>
-                <input name="hobby1" type="text" placeholder="Hobby van toekomstige match"/>
-                <label for="hobby">Hobby 2</label>
-                <input name="hobby2" type="text" placeholder="Hobby van toekomstige match"/>
-                <label for="hobby">Hobby 3</label>
-                <input name="hobby3" type="text" placeholder="Hobby van toekomstige match"/>
-                <label for="sex">*Man</label>
-                <input name="sex" type="radio" value="male" />
-                <label for="sex">*Vrouw</label>
-                <input name="sex" type="radio" value="female" />
-                <label for="sex">*Beide</label>
-                <input name="sex" type="radio" value="both" />
-                <label for="age">*Minimum leeftijd</label>
-                <select>
-                    <option selected="selected" value="1">Leeftijd</option>
-                    <option value="2">18</option>
-                    <option value="3">19</option>
-                    <option value="4">20</option>
-                    <option value="5">21</option>
-                    <option value="6">22</option>
-                    <option value="7">23</option>
-                    <option value="8">24</option>
-                    <option value="9">25</option>
-                    <option value="10">26</option>
-                    <option value="11">27</option>
-                    <option value="12">28</option>
-                    <option value="13">29</option>
-                    <option value="14">30</option>
-                </select>
-                <p>*verplicht veld</p>
-                <button type="submit" value="Submit">Submit</button>
+        <form id="searchForm" accept-charset="UTF-8" action="result.html" autocomplete="off" method="GET"
+            target="_blank">
+            <legend>Zoeken op:</legend>
+            <label for="hobby">*Hobby 1</label>
+            <div id="hobbyList">
+                <label id="option" for="">
+                    <input type="checkbox">
+                    Sport
+                </label>
+                <label id="option" for="">
+                    <input type="checkbox">
+                    Muziek
+                </label>
+                <label id="option" for="">
+                    <input type="checkbox">
+                    Outdoor
+                </label>
+                <label id="option" for="">
+                    <input type="checkbox">
+                    Koken
+                </label>
+                <label id="option" for="">
+                    <input type="checkbox">
+                    Dansen
+                </label>
+                <label id="option" for="">
+                    <input type="checkbox">
+                    Lezen
+                </label>
+                <label id="option" for="">
+                    <input type="checkbox">
+                    Gamen
+                </label>
+                <label id="option" for="">
+                    <input type="checkbox">
+                    Development
+                </label>
+                <label id="option" for="">
+                    <input type="checkbox">
+                    Films
+                </label>
+                <label id="option" for="">
+                    <input type="checkbox">
+                    Fotografie
+                </label>
+                <label id="option" for="">
+                    <input type="checkbox">
+                    D.I.Y
+                </label>
+                <label id="option" for="">
+                    <input type="checkbox">
+                    Huisdieren
+                </label>
+                <label id="option" for="">
+                    <input type="checkbox">
+                    Sociale Media
+                </label>
+            </div>
+            <label for="hobby">
+                Hobby 2
+                <button>+</button>
+            </label>
+            <label for="hobby">
+                Hobby 3
+                <button>+</button>
+            </label>
+            <div id="sexe">
+                <label for="sex">
+                    *Man
+                    <input name="sex" type="radio" value="male" />
+                </label>
+                <label for="sex">
+                    *Vrouw
+                    <input name="sex" type="radio" value="female" />
+                </label>
+                <label for="sex">
+                    *Beide
+                    <input name="sex" type="radio" value="both" />
+                </label>
+            </div>
+
+            <label id="bottomLabel" for="age">*Minimum leeftijd</label>
+            <select>
+                <option selected="selected" value="1">Leeftijd</option>
+                <option value="2">18</option>
+                <option value="3">19</option>
+                <option value="4">20</option>
+                <option value="5">21</option>
+                <option value="6">22</option>
+                <option value="7">23</option>
+                <option value="8">24</option>
+                <option value="9">25</option>
+                <option value="10">26</option>
+                <option value="11">27</option>
+                <option value="12">28</option>
+                <option value="13">29</option>
+                <option value="14">30</option>
+            </select>
+            <p>*verplicht veld</p>
+            <button type="submit" value="Submit">Zoek!</button>
         </form>
     </main>
     <footer>
