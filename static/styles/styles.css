@@ -216,13 +216,21 @@ footer section p {
     padding: 1.5rem 0rem;
 }
 
-#disabledDropdown{
-    display: none;
+.disabledDropdown{
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.2s ;
+    /* display: none; */
 }
 
-/* .active{
-    display: block;
-} */
+.active{
+    max-height: 3rem;
+    /* display: block; */
+}
+
+
+
+
 
 @media screen and (min-width: 350px) {
 
