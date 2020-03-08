@@ -2,134 +2,259 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Results</title>
-    <link rel="stylesheet" href="styles/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Results</title>
+  <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>
-    <header>
-        <div><img src="images/amatch-logo2.png" alt=""></div>
-        <nav>
-            <ul>
-                <li><a href="myprofile.html">My Profile</a></li>
-                <li><a href="mychats.html">My Chats</a></li>
-                <li><a href="index.html">Matchmaking</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <!--Filter balk-->
-        <div id="filterBar">
-            <form id="filterForm" accept-charset="UTF-8" action="result.html" autocomplete="off" method="GET"
-                target="_blank">
-                
-                <div id="checkboxContainer">
-                    <label for="hobby2">Hobby 2</label>
-                    <input id="checkboxDropdown" type="checkbox">
-                </div>
-                <div id="checkboxContainer">
-                    <label for="hobby3">Hobby 3</label>
-                    <input id="checkboxDropdown" type="checkbox">
-                </div>
-                <select>
-                  <option selected="selected" value="1">Leeftijd</option>
-                  <option value="2">18</option>
-                  <option value="3">19</option>
-                  <option value="4">20</option>
-                  <option value="5">21</option>
-                  <option value="6">22</option>
-                  <option value="7">23</option>
-                  <option value="8">24</option>
-                  <option value="9">25</option>
-                  <option value="10">26</option>
-                  <option value="11">27</option>
-                  <option value="12">28</option>
-                  <option value="13">29</option>
-                  <option value="14">30</option>
-              </select>
-            </form>
+  <header>
+    <div><img src="images/amatch-logo2.png" alt=""></div>
+    <nav>
+      <ul>
+        <li><a href="myprofile.html">My Profile</a></li>
+        <li><a href="mychats.html">My Chats</a></li>
+        <li><a href="index.html">Matchmaking</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <!--Filter balk-->
+    <div id="filterBar">
+      <h1>Filteren</h1>
+      <button id="activateDropdown1">Hobby 1</button>
+      <form class="filterForm" accept-charset="UTF-8" action="result.html" autocomplete="off" method="GET" target="_top">
+        <div class="disabledDropdown1">
+          <label id="option" for="">
+            <input type="checkbox">
+            Sport
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Muziek
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Outdoor
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Koken
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Dansen
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Lezen
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Gamen
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Development
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Films
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Fotografie
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            D.I.Y
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Huisdieren
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Sociale Media
+          </label>
         </div>
-        <div class="disabledDropdown">
-            <label id="option"for="">
-                <input type="checkbox"> 
-                Sport
-              </label>  
-              <label id="option"for="">
-                <input type="checkbox"> 
-                Muziek
-              </label>  
-              <label id="option"for="">
-                <input type="checkbox"> 
-                Outdoor
-              </label>
-              <label id="option"for="">
-                <input type="checkbox"> 
-                Koken
-              </label>
-              <label id="option"for="">
-                <input type="checkbox"> 
-                Dansen
-              </label>
-              <label id="option"for="">
-                <input type="checkbox"> 
-                Lezen
-              </label>
-              <label id="option"for="">
-                <input type="checkbox"> 
-                Gamen
-              </label>
-              <label id="option"for="">
-                <input type="checkbox"> 
-                Development
-              </label>  
-              <label id="option"for="">
-                <input type="checkbox"> 
-                Films
-              </label>
-              <label id="option"for="">
-                <input type="checkbox"> 
-                Fotografie
-              </label>  
-              <label id="option"for="">
-                <input type="checkbox"> 
-                D.I.Y
-              </label>  
-              <label id="option"for="">
-                <input type="checkbox"> 
-                Huisdieren
-              </label>
-              <label id="option"for="">
-                <input type="checkbox"> 
-                Sociale Media
-              </label>  
+      </form>
+      <button id="activateDropdown2">Hobby 2</button>
+      <form class="filterForm" accept-charset="UTF-8" action="result.html" autocomplete="off" method="GET" target="_top">
+        <div class="disabledDropdown2">
+          <label id="option" for="">
+            <input type="checkbox">
+            Sport
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Muziek
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Outdoor
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Koken
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Dansen
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Lezen
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Gamen
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Development
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Films
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Fotografie
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            D.I.Y
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Huisdieren
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Sociale Media
+          </label>
         </div>
-        <!--Profiel resultaten-->
-        <div id="matchList">
-            <div id="profileTile" class="resultTile">
-                <img src="images/frauw.png" alt="man">
-                <div>
-                    <h1>Claire, 25</h1>
-                    <p><span>Hobby's:</span> Fotografie, Lezen, Outdoor</p>
-                    <p><span>Opleiding:</span> Journalistiek</p>
-                </div>
-            </div>
-            <div id="profileTile" class="resultTile">
-                <img src="images/frauw.png" alt="man">
-                <div>
-                    <h1>Claire, 25</h1>
-                    <p><span>Hobby's:</span> Fotografie, Lezen, Outdoor</p>
-                    <p><span>Opleiding:</span> Journalistiek</p>
-                </div>
-            </div>
+      </form>
+      <button id="activateDropdown3">Hobby 3</button>
+      <form class="filterForm" accept-charset="UTF-8" action="result.html" autocomplete="off" method="GET" target="_top">
+        <div class="disabledDropdown3">
+          <label id="option" for="">
+            <input type="checkbox">
+            Sport
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Muziek
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Outdoor
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Koken
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Dansen
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Lezen
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Gamen
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Development
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Films
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Fotografie
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            D.I.Y
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Huisdieren
+          </label>
+          <label id="option" for="">
+            <input type="checkbox">
+            Sociale Media
+          </label>
         </div>
-    </main>
-    <footer>
-        <section>
-            <p>Indeling en Styling door Merlijn Bergevoet 2020 &copy;</p>
-        </section>
-    </footer>
+      </form>
+      <form id="age" accept-charset="UTF-8" action="result.html" autocomplete="off" method="GET" target="_blank">
+      <select>
+        <option selected="selected" value="1">Leeftijd</option>
+        <option value="2">18</option>
+        <option value="3">19</option>
+        <option value="4">20</option>
+        <option value="5">21</option>
+        <option value="6">22</option>
+        <option value="7">23</option>
+        <option value="8">24</option>
+        <option value="9">25</option>
+        <option value="10">26</option>
+        <option value="11">27</option>
+        <option value="12">28</option>
+        <option value="13">29</option>
+        <option value="14">30</option>
+      </select>
+    </form>
+    </div>
+    <!--Profiel resultaten-->
+    <div id="matchList">
+      <div id="profileTile" class="resultTile">
+        <img src="images/frauw.png" alt="man">
+        <div>
+          <h1>Claire, 24</h1>
+          <p><span>Hobby's:</span> Fotografie, Lezen, Outdoor</p>
+          <p><span>Opleiding:</span> Journalistiek</p>
+        </div>
+      </div>
+      <div id="profileTile" class="resultTile">
+        <img src="images/frauw2.png" alt="man">
+        <div>
+          <h1>Susan, 23</h1>
+          <p><span>Hobby's:</span> D.I.Y., Muziek, Lezen </p>
+          <p><span>Opleiding:</span> Vertaler</p>
+        </div>
+      </div>
+      <div id="profileTile" class="resultTile">
+        <img src="images/frauw3.png" alt="man">
+        <div>
+          <h1>Betty, 23</h1>
+          <p><span>Hobby's:</span> Sociale Media, Films, Koken </p>
+          <p><span>Opleiding:</span> Management</p>
+        </div>
+      </div>
+      <div id="profileTile" class="resultTile">
+        <img src="images/frauw4.png" alt="man">
+        <div>
+          <h1>Mia, 22</h1>
+          <p><span>Hobby's:</span> Sport, D.I.Y., Dansen </p>
+          <p><span>Opleiding:</span> Kunstacedemie</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <section>
+      <p>Indeling en Styling door Merlijn Bergevoet 2020 &copy;</p>
+    </section>
+  </footer>
 </body>
 <script src="js/script.js"></script>
+
 </html>

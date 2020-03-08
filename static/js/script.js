@@ -1,25 +1,27 @@
 console.log("Gekoppelt");
-let checkbox = document.querySelector("#checkboxDropdown");
-let dropdown = document.querySelector(".disabledDropdown");
-let filterform = document.querySelector("#filterForm");
-//idee om code compacter te maken
-//stop alle id's van de dropdownes en dropdowns in een array
-//filter door de array als er op een knop gedrukt wordt
-//plaatst de dingen in de template functie
-//voer de functie uit
+const hobbybutton1 = document.querySelector("#activateDropdown1");
+const hobbybutton2 = document.querySelector("#activateDropdown2");
+const hobbybutton3 = document.querySelector("#activateDropdown3");
+const dropdown1 = document.querySelector(".disabledDropdown1");
+const dropdown2 = document.querySelector(".disabledDropdown2");
+const dropdown3 = document.querySelector(".disabledDropdown3");
+const filterform = document.querySelector(".filterForm");
 
-function toggleDropdown(){
+function toggleDropdown1(){
     console.log("klik");
-    dropdown.classList.toggle("active");
+    dropdown1.classList.toggle("active");
 }
 
-// function toggleVisibility() {
-//     console.log("klik");
-//     if(disabledDropdown.style.display == 'block'){
-//         disabledDropdown.style.display = 'none';
-//     } else {
-//         disabledDropdown.style.display = 'block';
-//     }
-// };
+function toggleDropdown2(){
+    console.log("klik");
+    dropdown2.classList.toggle("active");
+}
 
-checkbox.addEventListener("click", toggleDropdown);
+function toggleDropdown3(){
+    console.log("klik");
+    dropdown3.classList.toggle("active");
+}
+
+hobbybutton1.addEventListener("click", toggleDropdown1);
+hobbybutton2.addEventListener("click", toggleDropdown2);
+hobbybutton3.addEventListener("click", toggleDropdown3);

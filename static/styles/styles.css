@@ -8,6 +8,13 @@
     src: url("../fonts/circular-black.otf");
 }
 
+:root {
+    --neutral-color: white;
+    --baby-blue-color: #c9e5ff;
+    --purple-blue-color: #e3e9ff;
+    --pink-color: #ffe6ed;
+  }
+
 * {
     margin: 0;
     padding: 0;
@@ -58,7 +65,7 @@ header nav ul li {
     padding: 0.7rem 0rem 0.7rem 1rem;
     border: none;
     width: 90%;
-    background-color: white;
+    background-color: var(--neutral-color);
     border-radius: 15px;
 }
 
@@ -72,14 +79,14 @@ header nav ul li a:hover {
 
 header,
 main {
-    background-color: #c9e5ff;
+    background-color: var(--baby-blue-color);
 }
 
 main #searchForm, main section{
     display: block;
     padding: 2rem;
     border-radius: 10px;
-    background-color: #e3e9ff;
+    background-color: var(--purple-blue-color);
 }
 
 #searchForm > *{
@@ -105,19 +112,24 @@ main #searchForm, main section{
     color: gray;
 }
 
-#searchForm button{
+#searchForm button[type=submit] {
     height: 3rem;
     border: none;
     border-radius: 5px;
-    background-color: #ffff;
+    background-color: var(--neutral-color);
     color: gray;
-    font-weight: 700;
     margin-top: 2rem;
     padding: 1rem;
+    width: 100%;
 }
 
-#searchForm button[type=submit] {
-    width: 100%;
+#plusButtonOne, #plusButtonTwo{
+    margin: 1rem 0.5rem;
+    padding: 0.3rem 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 3px;
+    background-color: var(--neutral-color);
 }
 
 #sexe{
@@ -134,31 +146,55 @@ main #searchForm, main section{
 }
 
 #filterBar{
-    background-color: white;
+    background-color: var(--neutral-color);
     border-radius: 10px;
-    margin-bottom: 1rem;
-}
-
-#filterForm{
+    padding: 1rem 1.5rem;
     display: flex;
+    flex-wrap: nowrap;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
 }
 
-#filterForm > *{
-    padding: 0rem 1rem;
+#filterBar > *{
+    margin: 0.5rem 0rem;
 }
 
-#checkboxContainer label{
-    padding-right: 1rem;
-    font-size: 1.3rem;
+#filterBar h1{
+    font-size: 1rem;
 }
 
-#checkboxContainer input{
-    width: 1rem;
-    height: 1rem;
+#filterBar button{
+    background-color: var(--neutral-color);
+    border: none;
+    text-align: left;
+}
+
+#filterBar form select{
+    width: 100%;
+    padding: 0.5rem 0rem;
+    border-radius: 5px;
+    border: 1.5px solid #e6e6e6;
+}
+
+.disabledDropdown1, .disabledDropdown2, .disabledDropdown3{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    max-height: 0;
+    max-width: 100%;
+    overflow: hidden;
+    transition: 0.2s ;
+}
+
+.disabledDropdown1 label, .disabledDropdown2 label, .disabledDropdown3 label{
+    margin: 0rem 1rem 0rem 0rem;
+}
+
+.active{
+    max-height: 8.5rem;
+}
+
+#profileTile{
+    margin: 2rem 1rem;
 }
 
 #profileTile, #profileTile > *{
@@ -169,13 +205,16 @@ main #searchForm, main section{
     width: 90%;
     height: auto;
     display: block;
-    margin: 1rem;
     margin-left: auto;
     margin-right: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 #profileTile div{
-    background-color: white;
+    background-color: var(--neutral-color);
     padding: 2rem;
 }
 
@@ -197,12 +236,18 @@ main #searchForm, main section{
     margin-right: 0.5rem;
 }
 
+#searchForm, #profileTile {
+    -webkit-box-shadow: 0px 1px 24px 1px rgba(0,0,0,0.36);
+    -moz-box-shadow: 0px 1px 24px 1px rgba(0,0,0,0.36);
+    box-shadow: 0px 1px 24px 1px rgba(0,0,0,0.36);
+}
+
 .resultTile{
-    margin-bottom: 4rem;
+    margin: 2rem 0rem;
 }
 
 footer {
-    background-color: #ffe6ed;
+    background-color: var(--pink-color);
 }
 
 footer section {
@@ -215,22 +260,6 @@ footer section p {
     color: #ffbace;
     padding: 1.5rem 0rem;
 }
-
-.disabledDropdown{
-    max-height: 0;
-    overflow: hidden;
-    transition: 0.2s ;
-    /* display: none; */
-}
-
-.active{
-    max-height: 3rem;
-    /* display: block; */
-}
-
-
-
-
 
 @media screen and (min-width: 350px) {
 
@@ -273,24 +302,11 @@ footer section p {
         padding: 3rem 0rem 5rem 0rem;
     }
 
-    #searchForm, #profileTile {
-        -webkit-box-shadow: 4px 4px 20px -4px rgba(0, 0, 0, 0.75);
-        -moz-box-shadow: 4px 4px 20px -4px rgba(0, 0, 0, 0.75);
-        box-shadow: 4px 4px 20px -4px rgba(0, 0, 0, 0.75);
-    }
-
     #hobbyList{
         max-height: 9rem;
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-
-    }
-
-    #filterForm{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
     }
 
 }
@@ -320,17 +336,20 @@ footer section p {
     }
 
     #searchForm, #profileTile {
-        padding: 0rem 1.5rem 1.5rem 1.5rem;
         max-width: 35rem;
         box-sizing: border-box;
         margin-left: auto;
         margin-right: auto;
     }
+
+    #filterBar h1{
+        font-size: 1.2rem;
+    }
 }
 
 @media screen and (min-width: 1000px) {
     nav {
-        margin: 1.5rem 0rem;
+        margin: 1rem 0rem;
     }
 
     header div {
@@ -340,10 +359,8 @@ footer section p {
     }
 
     header div img {
-        max-height: 10rem;
+        max-height: 9rem;
         max-width: 8rem;
-        margin-left: 1rem;
-        margin-right: none;
     }
 
     header nav ul li a {
@@ -359,13 +376,9 @@ footer section p {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-between;
     }
 
-    .resultTile{
-        margin-left: none;
-        margin-right: none;
-    }
 }
 
 @media screen and (min-width: 1200px) {
