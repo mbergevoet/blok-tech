@@ -3,6 +3,7 @@ const slug = require('slug')
 const bodyParser = require('body-parser')
 const path = require('path')
 const app = express()
+const find = require('array-find');
 const port = 8000;
 
 let data = [
@@ -27,42 +28,41 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', form)
-  // .post('/add', add)
+  .get('/:id', movie)
+  .post('/details', add)
   
 app.get('/', (req, res) =>
   res.render('pages/main.ejs', {data: data}))
 
+  
 function form(req, res) {
-  res.render('add.ejs')
-}
+    res.render('add.ejs')
+  }
 
-app.post('/add', (req, res, next) =>
-{
-  console.log(req.body)
-  const title = req.body.title;
-  const plot = req.body.plot;
-  const description = req.body.description;
-
+function add(req, res) {
+  var id = slug(req.body.title).toLowerCase()
+  console.log(id)
   data.push({
+    id: id,
     title: req.body.title,
     plot: req.body.plot,
     description: req.body.description
   })
 
-  res.redirect('/') 
+  res.redirect('/' + id) 
+}
 
-})
+function movie(req, res, next){
+  var id = req.params.id
+  var movie = find(movies, function (value){
+      return value.id === id;
+  })
 
-// function add(req, res) {
-
-//   data.push({
-//     title: req.body.title,
-//     plot: req.body.plot,
-//     description: req.body.description
-//   })
-
-//   res.redirect('/')
-
-// }
+  if (!movie){
+      next()
+      return
+  }
+  res.render('details.ejs', {data: movie})
+}
 
 app.listen(port, () => console.log(`Example app listening on port ${ port }!`))

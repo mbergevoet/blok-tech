@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/mbergevoet/blok-tech#readme",
   "dependencies": {
+    "array-find": "^1.0.0",
     "body-parser": "^1.19.0",
     "camelcase": "^5.3.1",
     "ejs": "^3.0.1",
