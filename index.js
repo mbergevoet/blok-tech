@@ -21,17 +21,15 @@ let data = [
   }
 ]
 
-express()
-  .use(express.static('static'))
-  .use(bodyParser.urlencoded({extended: true}))
-  .use('/static', express.static('static'))
-  .set('views', path.join(__dirname, 'views'))
-  .set('view engine', 'ejs')
-  .get('/', form)
-  .get('/:id', movie)
-  .post('/details', add)
-  
-app.get('/', (req, res) =>
+app.use(express.static('static'))
+app.use(bodyParser.urlencoded({extended: true}))
+app.use('/static', express.static('static'))
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'ejs')
+// app.get('/:id', movie)
+app.get('/add', form)
+app.post('/details', add)
+app.get('/main', (req, res) =>
   res.render('pages/main.ejs', {data: data}))
 
   
@@ -40,29 +38,26 @@ function form(req, res) {
   }
 
 function add(req, res) {
-  var id = slug(req.body.title).toLowerCase()
-  console.log(id)
   data.push({
-    id: id,
     title: req.body.title,
     plot: req.body.plot,
     description: req.body.description
   })
 
-  res.redirect('/' + id) 
+  res.render('partials/details.ejs', {data: data})
 }
 
-function movie(req, res, next){
-  var id = req.params.id
-  var movie = find(movies, function (value){
-      return value.id === id;
-  })
+// function movie(req, res, next){
+//   var id = req.params.id
+//   var movie = find(data, function (value){
+//       return value.id === id;
+//   })
 
-  if (!movie){
-      next()
-      return
-  }
-  res.render('details.ejs', {data: movie})
-}
+//   if (!movie){
+//       next()
+//       return
+//   }
+//   res.render('add.ejs', {data: data})
+// }
 
 app.listen(port, () => console.log(`Example app listening on port ${ port }!`))
