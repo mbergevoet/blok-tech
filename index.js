@@ -1,9 +1,11 @@
-let express = require('express')
-let slug = require('slug')
-let bodyParser = require('body-parser')
-let app = express()
+const express = require('express')
+const slug = require('slug')
+const bodyParser = require('body-parser')
+const path = require('path')
+const app = express()
+const port = 8000;
 
-var data = [
+let data = [
   {
     id: 'evil-dead',
     title: 'Evil Dead',
@@ -22,62 +24,45 @@ express()
   .use(express.static('static'))
   .use(bodyParser.urlencoded({extended: true}))
   .use('/static', express.static('static'))
+  .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
-  .get('/add', form)
-  .get('/:id', movie)
-  .post('/', add)
-  .listen(8000)
+  .get('/', form)
+  // .post('/add', add)
   
 app.get('/', (req, res) =>
-  res.render('main.ejs', {data: data}))
-
-app.get('/', (req, res, next) =>
-  res.render('details.ejs', {data: data}))
-
-app.get('/', (req, res) =>
-  res.render('head.ejs', {data: data}))
-
-app.get('/', (req, res, next) =>
-  res.render('add.ejs', {data: data}))
-
-// app.from('/', (req, res) =>
-//   res.render('add.ejs'))
+  res.render('pages/main.ejs', {data: data}))
 
 function form(req, res) {
   res.render('add.ejs')
 }
 
-function movie(req, res, next) {
-    var id = req.params.id
-    var movie = find(data, function (value) {
-      return value.id === id
-    })
-  
-    if (!movie) {
-      next()
-      return
-    }
-  
-    res.render('detail.ejs', {data: movie})
-}
+app.post('/add', (req, res, next) =>
+{
+  console.log(req.body)
+  const title = req.body.title;
+  const plot = req.body.plot;
+  const description = req.body.description;
 
-function add(req, res) {
-  var id = slug(req.body.title).toLowerCase()
-  console.log(id)
   data.push({
-    id: id,
     title: req.body.title,
     plot: req.body.plot,
     description: req.body.description
   })
 
-  res.redirect('/' + id)
-}
+  res.redirect('/') 
 
-function listen(port) {
-  console.log(`Example app listening on port ${ port }!`)
-}
+})
 
-// app.listen(port, () => console.log(`Server is on`))
+// function add(req, res) {
 
-// app.listen(port, () => console.log(`Example app listening on port ${ port }!`))
+//   data.push({
+//     title: req.body.title,
+//     plot: req.body.plot,
+//     description: req.body.description
+//   })
+
+//   res.redirect('/')
+
+// }
+
+app.listen(port, () => console.log(`Example app listening on port ${ port }!`))
