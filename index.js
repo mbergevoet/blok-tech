@@ -3,39 +3,34 @@ const slug = require('slug')
 const bodyParser = require('body-parser')
 const path = require('path')
 const app = express()
-const find = require('array-find');
-var multer = require('multer')
-var mongo = require('mongodb')
-
+const find = require('array-find')
+const multer = require('multer')
+const mongo = require('mongodb')
+require('dotenv').config()
 const port = 8000;
 
-// let data = [
-//   {
-//     id: 'evil-dead',
-//     title: 'Evil Dead',
-//     plot: 'Five friends travel to a cabin in the woods, where they unknowingly release flesh-possessing demons.',
-//     description: 'Five friends head to a remote cabin, where the discovery of a Book of the Dead leads them to unwittingly summon up demons living in the nearby woods. The evil presence possesses them until only one is left to fight for survival.'
-//   },
-//   {
-//     id: 'the-shawshank-redemption',
-//     title: 'The Shawshank Redemption',
-//     plot: 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.',
-//     description: 'Andy Dufresne is a young and successful banker whose life changes drastically when he is convicted and sentenced to life imprisonment for the murder of his wife and her lover. Set in the 1940’s, the film shows how Andy, with the help of his friend Red, the prison entrepreneur, turns out to be a most unconventional prisoner.'
-//   }
-// ]
+let db = null
+const uri = 'mongodb://' + process.env.DB_URI + ':' + process.env.DB_PORT
 
-require('dotenv').config()
+mongo.MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }, function (err, client) {
+  if (err) {
+    throw err
+  }
 
-var db = null
-var url = 'mongodb://' + process.env.DB_HOST + ':' + process.env.DB_PORT
-
-mongo.MongoClient.connect(url, function (err, client) {
-  if (err) throw err
   db = client.db(process.env.DB_NAME)
 })
 
 function users(req, res, next) {
   db.collection('collection1').find().toArray(done)
+
+  function done(err, data) {
+    if (err) {
+      next(err)
+    } else {
+      res.render('details.ejs', {data: data})
+    } 
+  }
+}
 
 // app.use(express.static('static'))
 // app.use(bodyParser.urlencoded({extended: true}))
@@ -50,7 +45,7 @@ function users(req, res, next) {
 
   
 // function form(req, res) {
-//     res.render('add.ejs')
+//     res.render('details.ejs')
 //   }
 
 // function add(req, res) {

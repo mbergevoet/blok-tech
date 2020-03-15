@@ -4,9 +4,9 @@
 <% for (var index = 0; index < data.length; index++) { %>
   <h2>
     <a href="/<%= data[index].id %>">
-      <%= data[index].title %>
+      <%= data[index]._id %>
     </a>
   </h2>
-  <p><%= data[index].plot %></p>
-  <p><%= data[index].description %></p>
+  <p><%= data[index].username %></p>
+  <p><%= data[index].password %></p>
 <% } %>

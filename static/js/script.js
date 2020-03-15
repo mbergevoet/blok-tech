@@ -25,3 +25,8 @@ function toggleDropdown3(){
 hobbybutton1.addEventListener("click", toggleDropdown1);
 hobbybutton2.addEventListener("click", toggleDropdown2);
 hobbybutton3.addEventListener("click", toggleDropdown3);
+
+// TODO
+// High order functions schrijven ipv dit alles
+// Like knop handler
+// 

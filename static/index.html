@@ -14,14 +14,14 @@
         <nav>
             <ul>
                 <li class="animatedLink"><a href="myprofile.html">My Profile</a></li>
-                <li  class="animatedLink"><a href="mychats.html">My Chats</a></li>
-                <li  class="animatedLink"><a href="index.html">Matchmaking</a></li>
+                <li class="animatedLink"><a href="mychats.html">My Chats</a></li>
+                <li class="animatedLink"><a href="index.html">Matchmaking</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <form id="searchForm" accept-charset="UTF-8" action="D:\Git Files\blok-tech\static\result.html" autocomplete="off" method="POST"
-            target="_top">
+        <form id="searchForm" accept-charset="UTF-8" action="D:\Git Files\blok-tech\static\result.html"
+            autocomplete="off" method="POST" target="_top">
             <legend>Zoeken op:</legend>
             <label for="hobby">*Hobby 1</label>
             <div id="hobbyList">
@@ -99,6 +99,7 @@
                     *Beide
                     <input name="sex" type="radio" value="both" />
                 </label>
+
             </div>
             <!-- <label id="bottomLabel" for="age">*Minimum leeftijd</label>
             <select>
@@ -117,14 +118,14 @@
                 <option value="13">29</option>
                 <option value="14">30</option>
             </select> -->
-            <p>*verplicht veld</p>
+            <label>Leeftijd</label>
+            <div id="slider">
+                <output name="ageOutputName" id="ageOutputId">00</output>
+                <input type="range" name="ageInputName" id="ageInputId" value="25" min="18" max="50"
+                    oninput="ageOutputId.value = ageInputId.value">
+            </div>
             <button type="submit" value="search">Zoek!</button>
         </form>
-        <form class="slider" accept-charset="UTF-8" action="D:\Git Files\blok-tech\static\result.html" autocomplete="off" method="POST"
-            target="_top">                                      <label>Leeftijd</label>
-                <output name="ageOutputName" id="ageOutputId">00  </output>
-             <input type="range" name="ageInputName" id="ageInputId" value="20" min="1" max="40" oninput="ageOutputId.value = ageInputId.value">
-            </form>
     </main>
     <footer>
         <section>
