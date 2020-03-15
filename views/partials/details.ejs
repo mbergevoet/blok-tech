@@ -1,12 +1,13 @@
 <!doctype html>
-<title><%= data.title %> - My movie website</title>
-<h1>Movies</h1>
+<title><%= data.name %> - Matches</title>
+<h1>Matches</h1>
 <% for (var index = 0; index < data.length; index++) { %>
   <h2>
-    <a href="/<%= data[index].id %>">
-      <%= data[index]._id %>
+    <a href="/<%= data[index]._id %>">
+      <%= data[index].name %>, <%= data[index].age %>
     </a>
   </h2>
-  <p><%= data[index].username %></p>
-  <p><%= data[index].password %></p>
+  <p>Contact: <%= data[index].email %></p>
+  <p>Hobby: <%= data[index].hobby %></p>
+  <p><%= data[index]._id %></p>
 <% } %>
