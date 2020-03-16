@@ -14,7 +14,7 @@ require('dotenv').config()
 const port = 8000
 
 let db = null
-const uri = process.env.DB_URI
+const uri = "mongodb+srv://" + process.env.DB_USER + ":" + process.env.DB_PASSWORD + "@" + process.env.DB_HOST;
 
 mongo.MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }, function (err, client) {
   if (err) {
@@ -30,10 +30,10 @@ app.use(urlencodedParser);
 app.use('/static', express.static('static'))
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
-// app.get('/:id', movie)
 // app.get('/main', users)
 app.get('/add', form)
-app.post('/details', urlencodedParser, add);
+app.get('/remove', id)
+app.post('/details', urlencodedParser, remove);
 app.get('/error', notFound)
 
 app.get('/main', (req, res) =>
@@ -52,28 +52,32 @@ app.get('/main', (req, res) =>
 //   }
 // }  
 
-function add(req, res, next){
-  db.collection('usersCollection').insertOne({
-      name: req.body.name,
-      email: req.body.email,
-      age: req.body.age,
-      hobby: req.body.hobby
-  })
-  db.collection('usersCollection').find().toArray
-  (done)
+// function add(req, res, next){
+//   db.collection('usersCollection').insertOne({
+//       name: req.body.name,
+//       email: req.body.email,
+//       age: req.body.age,
+//       hobby: req.body.hobby
+//   })
+//   db.collection('usersCollection').find().toArray
+//   (done)
 
-  function done(err, data){
-      if (err){
-          next (err)
-      } else{
-          console.log(data)
-          res.render('partials/details.ejs', {data: data})
-      }
-  }
-}
+//   function done(err, data){
+//       if (err){
+//           next (err)
+//       } else{
+//           console.log(data)
+//           res.render('partials/details.ejs', {data: data})
+//       }
+//   }
+// }
 
 function form (req, res)  {
     res.render('partials/add.ejs')
+  }
+
+function id (req, res)  {
+    res.render('partials/remove.ejs')
   }
 
 // function find(req, res, next){
@@ -91,20 +95,25 @@ function form (req, res)  {
 //   }
 // }
 
-// function remove(req, res, next) {
-//   var id = req.params.id
-//   db.collection('usersCollection').deleteOne({
-//     _id: mongo.ObjectID(id)
-//   }, done)
+function remove(req, res, next) {
+  var id = req.body.id
+  db.collection('usersCollection').deleteOne({
+    _id: mongo.ObjectID(id)
+  })
+  db.collection('usersCollection').find().toArray
+  (done)
 
-//   function done(err) {
-//     if (err) {
-//       next(err)
-//     } else {
-//       res.json({status: 'ok'})
-//     }
-//   }
-// }
+  function done(err, data) {
+    if (err) {
+      next(err)
+    } else {
+      console.log(data)
+      res.render('partials/details.ejs', {data: data})
+      console.log('redirected')
+      // res.json({status: 'ok'})
+    }
+  }
+}
 
 function notFound(req, res) {
   res.status(404).render('not-found.ejs')
