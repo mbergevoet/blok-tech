@@ -26,6 +26,7 @@ mongo.MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true
 
 app.use(express.static('static'))
 app.use(bodyParser.urlencoded({extended: true}))
+app.use(urlencodedParser);
 app.use('/static', express.static('static'))
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
@@ -38,18 +39,18 @@ app.get('/error', notFound)
 app.get('/main', (req, res) =>
   res.render('pages/main.ejs'))
 
-function users(req, res, next) {
-  db.collection('usersCollection').find().toArray(done)
+// function users(req, res, next) {
+//   db.collection('usersCollection').find().toArray(done)
   
-  function done(err, data) {
-    if (err) {
-      next(err)
-    } else {
-      console.log(data)
-      res.render('partials/details.ejs', {data: data})
-    } 
-  }
-}  
+//   function done(err, data) {
+//     if (err) {
+//       next(err)
+//     } else {
+//       console.log(data)
+//       res.render('partials/details.ejs', {data: data})
+//     } 
+//   }
+// }  
 
 function add(req, res, next){
   db.collection('usersCollection').insertOne({
@@ -57,15 +58,16 @@ function add(req, res, next){
       email: req.body.email,
       age: req.body.age,
       hobby: req.body.hobby
-  }, done)
+  })
+  db.collection('usersCollection').find().toArray
+  (done)
 
   function done(err, data){
       if (err){
           next (err)
       } else{
-          // res.redirect('/details' + data.insertedId)
-          res.render('partials/details.ejs', {data: data})
           console.log(data)
+          res.render('partials/details.ejs', {data: data})
       }
   }
 }
@@ -76,7 +78,7 @@ function form (req, res)  {
 
 // function find(req, res, next){
 //   var id = req.params.id
-//   db.collection('movies').findOne({
+//   db.collection('usersCollection').findOne({
 //       _id: mongo.ObjectID(id)
 //   }, done)
 
@@ -84,10 +86,10 @@ function form (req, res)  {
 //       if (err){
 //           next (err)
 //       } else{
-//           res.render('detail.ejs', {data: data})
+//           res.render('partials/details.ejs', {data: data})
 //       }
- 
 //   }
+// }
 
 // function remove(req, res, next) {
 //   var id = req.params.id

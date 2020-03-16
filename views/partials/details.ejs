@@ -1,6 +1,9 @@
-<!doctype html>
-<title><%= data.name %> - Matches</title>
-<h1>Matches</h1>
+<html>
+  <head>
+    <%- include('../partials/head') %>
+  </head>
+  <body>
+    <h1>Users</h1>
 <% for (var index = 0; index < data.length; index++) { %>
   <h2>
     <a href="/<%= data[index]._id %>">
@@ -11,3 +14,5 @@
   <p>Hobby: <%= data[index].hobby %></p>
   <p><%= data[index]._id %></p>
 <% } %>
+  </body>
+</html>
