@@ -41,8 +41,8 @@ app.get('/main', (req, res) =>
   res.render('pages/main.ejs'))
 
   function search(req, res, next) {
-    var hb = req.body.hobby
-    db.collection('usersCollection').find({"hobby" : hb}).toArray(done)  
+    var hob = req.body.hobby1
+    db.collection('usersCollection').find({"hobby1" : hob}).toArray(done)  
     function done(err, data) {
       if (err) {
         next(err)

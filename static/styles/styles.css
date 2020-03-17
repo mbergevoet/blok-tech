@@ -301,20 +301,26 @@ input[type=range]::-webkit-slider-thumb {
     justify-content: space-between;
 }
 
-.likeButton, .discardButton{
-    border: none;
-    border-radius: 30px;
-    padding: 1rem 1.3rem;
-}
-
 .likeButton{
     color: var(--neutral-color);
     background-color: #ff6370;
+    background-image: url(../images/heart.png);
+    background-size: 2.5rem;
 }
 
 .discardButton{
     color: var(--neutral-color);
     background-color: #2b92ff;
+    background-image: url(../images/cancel.png);
+    background-size: 2rem;
+}
+
+.likeButton, .discardButton{
+    border: none;
+    border-radius: 40px;
+    padding: 2rem;
+    background-repeat: no-repeat;
+    background-position: center;    
 }
 
 footer {
