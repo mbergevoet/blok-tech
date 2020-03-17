@@ -32,8 +32,9 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 // app.get('/main', users)
 app.get('/add', form)
-app.get('/remove', id)
-app.post('/details', urlencodedParser, remove);
+app.get('/remove', destroy)
+app.get('/update', adjust)
+app.post('/details', urlencodedParser, update);
 app.get('/error', notFound)
 
 app.get('/main', (req, res) =>
@@ -76,12 +77,16 @@ function form (req, res)  {
     res.render('partials/add.ejs')
   }
 
-function id (req, res)  {
+function destroy (req, res)  {
     res.render('partials/remove.ejs')
   }
 
+function adjust (req, res)  {
+    res.render('partials/update.ejs')
+  }
+
 // function find(req, res, next){
-//   var id = req.params.id
+//   let id = req.params.id
 //   db.collection('usersCollection').findOne({
 //       _id: mongo.ObjectID(id)
 //   }, done)
@@ -95,25 +100,67 @@ function id (req, res)  {
 //   }
 // }
 
-function remove(req, res, next) {
-  var id = req.body.id
-  db.collection('usersCollection').deleteOne({
-    _id: mongo.ObjectID(id)
-  })
-  db.collection('usersCollection').find().toArray
-  (done)
+// function remove(req, res, next) {
+//   let id = req.body.id
+//   db.collection('usersCollection').deleteOne({
+//     _id: mongo.ObjectID(id)
+//   })
+//   db.collection('usersCollection').find().toArray
+//   (done)
 
-  function done(err, data) {
-    if (err) {
-      next(err)
-    } else {
-      console.log(data)
-      res.render('partials/details.ejs', {data: data})
-      console.log('redirected')
-      // res.json({status: 'ok'})
+//   function done(err, data) {
+//     if (err) {
+//       next(err)
+//     } else {
+//       console.log(data)
+//       res.render('partials/details.ejs', {data: data})
+//       console.log('redirected')
+//       // res.json({status: 'ok'})
+//     }
+//   }
+// }
+
+// function update(req, res, next){
+//   let oldName = mongo.ObjectID(name)
+//   let newName = req.body.name
+//   // findOne({
+//   //   _id: (dat id dat je hebt)})
+  
+//   db.collection('usersCollection').updateOne(
+//     oldName, newName 
+//   )
+//   db.collection('usersCollection').find().toArray
+//   (done)
+
+//   function done(err, data) {
+//     if (err) {
+//       next(err)
+//     } else {
+//       console.log(data)
+//       res.render('partials/details.ejs', {data: data})
+//       console.log('redirected')
+//       // res.json({status: 'ok'})
+//     }
+//   }
+// }
+
+function update(req, res, next){
+  let id = req.body.id
+  let name = req.body.name
+let filter = mongo.ObjectID(id)
+let update = { $set: { name: name} }
+db.collection("usersCollection").updateOne(filter, update, function(err, res) {
+  if (err) {
+    next(err)
+  } else {
+    console.log(data)
+    console.log("Successfully updated name");
+    // res.render('partials/details.ejs', {data: data})
+    // console.log('redirected')
     }
-  }
+  })
 }
+
 
 function notFound(req, res) {
   res.status(404).render('not-found.ejs')
