@@ -147,18 +147,21 @@ function adjust (req, res)  {
 function update(req, res, next){
   let id = req.body.id
   let name = req.body.name
-let filter = mongo.ObjectID(id)
-let update = { $set: { name: name} }
-db.collection("usersCollection").updateOne(filter, update, function(err, res) {
-  if (err) {
-    next(err)
-  } else {
-    console.log(data)
-    console.log("Successfully updated name");
-    // res.render('partials/details.ejs', {data: data})
-    // console.log('redirected')
-    }
-  })
+let filter = {_id: mongo.ObjectId(id)};
+let update = {$set: {name: name}}
+db.collection('usersCollection').updateOne(filter, update)
+db.collection('usersCollection').find().toArray
+(done)
+
+  function done(err, data) {
+        if (err) {
+          next(err)
+        } else {
+          console.log(data)
+          res.render('partials/details.ejs', {data: data})
+          console.log('redirected')
+        }
+      }
 }
 
 
