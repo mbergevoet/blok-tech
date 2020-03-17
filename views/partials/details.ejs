@@ -1,18 +1,13 @@
-<html>
-  <head>
-    <%- include('../partials/head') %>
-  </head>
-  <body>
-    <h1>Users</h1>
 <% for (var index = 0; index < data.length; index++) { %>
-  <h2>
-    <a href="/<%= data[index]._id %>">
-      <%= data[index].name %>, <%= data[index].age %>
-    </a>
-  </h2>
-  <p>Contact: <%= data[index].email %></p>
-  <p>Hobby: <%= data[index].hobby %></p>
-  <p><%= data[index]._id %></p>
+<div id="profileTile" class="resultTile">
+  <img src="../../static/images/user.png" alt="man">
+  <div>
+    <h1><%= data[index].name %>, <%= data[index].age %></h1>
+    <p><span>Hobby's:</span> <%= data[index].hobby %></p>
+    <ul class="actionButtons">
+      <li><button class="likeButton">L</button></li>
+      <li><button class="discardButton">D</button></li>
+    </ul>
+  </div>
+</div>
 <% } %>
-  </body>
-</html>

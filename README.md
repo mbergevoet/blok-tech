@@ -7,6 +7,10 @@ Met behulp van een express server maak ik connectie met een mongodb database met
 ```
 git clone https://github.com/mbergevoet/blok-tech
 ```
+```
+npm install
+node index.js
+```
 
 ## Packetes
 Zie package.json voor de dependecies.

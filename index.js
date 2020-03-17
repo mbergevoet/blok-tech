@@ -31,14 +31,27 @@ app.use('/static', express.static('static'))
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 // app.get('/main', users)
-app.get('/add', form)
-app.get('/remove', destroy)
-app.get('/update', adjust)
-app.post('/details', urlencodedParser, update);
+// app.get('/add', form)
+// app.get('/remove', destroy)
+// app.get('/update', adjust)
+// app.post('/details', urlencodedParser, update)
+app.post('/result', urlencodedParser, search)
 app.get('/error', notFound)
-
-app.get('/main', (req, res) =>
+app.get('/main', (req, res) =>  
   res.render('pages/main.ejs'))
+
+  function search(req, res, next) {
+    var hobby = req.body.hobby
+    db.collection('usersCollection').find(hobby).toArray(done)
+  
+    function done(err, data) {
+      if (err) {
+        next(err)
+      } else {
+        res.render('pages/result.ejs', {data: data})
+      }
+    }
+  }
 
 // function users(req, res, next) {
 //   db.collection('usersCollection').find().toArray(done)
@@ -73,17 +86,17 @@ app.get('/main', (req, res) =>
 //   }
 // }
 
-function form (req, res)  {
-    res.render('partials/add.ejs')
-  }
+// function form (req, res)  {
+//     res.render('partials/add.ejs')
+//   }
 
-function destroy (req, res)  {
-    res.render('partials/remove.ejs')
-  }
+// function destroy (req, res)  {
+//     res.render('partials/remove.ejs')
+//   }
 
-function adjust (req, res)  {
-    res.render('partials/update.ejs')
-  }
+// function adjust (req, res)  {
+//     res.render('partials/update.ejs')
+//   }
 
 // function find(req, res, next){
 //   let id = req.params.id
@@ -120,49 +133,26 @@ function adjust (req, res)  {
 //   }
 // }
 
+
 // function update(req, res, next){
-//   let oldName = mongo.ObjectID(name)
-//   let newName = req.body.name
-//   // findOne({
-//   //   _id: (dat id dat je hebt)})
-  
-//   db.collection('usersCollection').updateOne(
-//     oldName, newName 
-//   )
-//   db.collection('usersCollection').find().toArray
-//   (done)
+//   let id = req.body.id
+//   let name = req.body.name
+// let filter = {_id: mongo.ObjectId(id)};
+// let update = {$set: {name: name}}
+// db.collection('usersCollection').updateOne(filter, update)
+// db.collection('usersCollection').find().toArray
+// (done)
 
 //   function done(err, data) {
-//     if (err) {
-//       next(err)
-//     } else {
-//       console.log(data)
-//       res.render('partials/details.ejs', {data: data})
-//       console.log('redirected')
-//       // res.json({status: 'ok'})
-//     }
-//   }
+//         if (err) {
+//           next(err)
+//         } else {
+//           console.log(data)
+//           res.render('partials/details.ejs', {data: data})
+//           console.log('redirected')
+//         }
+//       }
 // }
-
-function update(req, res, next){
-  let id = req.body.id
-  let name = req.body.name
-let filter = {_id: mongo.ObjectId(id)};
-let update = {$set: {name: name}}
-db.collection('usersCollection').updateOne(filter, update)
-db.collection('usersCollection').find().toArray
-(done)
-
-  function done(err, data) {
-        if (err) {
-          next(err)
-        } else {
-          console.log(data)
-          res.render('partials/details.ejs', {data: data})
-          console.log('redirected')
-        }
-      }
-}
 
 
 function notFound(req, res) {

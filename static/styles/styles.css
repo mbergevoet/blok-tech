@@ -150,6 +150,12 @@ main #searchForm {
     margin-right: 0.5rem;
 }
 
+#textinput{
+    height: 2rem;
+    border: none;
+    border-radius: 5px;
+}
+
 #filterBar{
     background-color: var(--neutral-color);
     border-radius: 10px;
@@ -202,7 +208,7 @@ main #searchForm {
     display: flex;
     flex-direction: row;
     align-items: baseline;
-    background-color: green;
+    /* background-color: green; */
     /* max-width: 2rem; */
 }
   
