@@ -53,17 +53,16 @@ app.get('/return', (req, res) =>
 res.render('pages/return.ejs'))
 
 function search(req, res, next) {
-    var hob = req.body.hobby1
-    req.session.hobby1 = req.body.hobby1;
+    let hob = req.body.hobby1
+    req.session.hobby1 = hob
     if(req.session.hobby1) {
       db.collection('usersCollection').find({"hobby1" : hob}).toArray(done)
     } else {
+      db.collection('usersCollection').find({"hobby1" : hob}).toArray(done)
       res.render('pages/return.ejs')
       (done)
     }
 
-    // db.collection('usersCollection').find({"hobby1" : hob}).toArray(done)  
-    // res.end('done');
     function done(err, data) {
       if (err) {
         next(err)
@@ -73,9 +72,7 @@ function search(req, res, next) {
     }
 }
 app.get('/return',function(req,res){
-	
-	// if the user logs out, destroy all of their individual session
-	// information
+
 	req.session.destroy(function(err) {
 		if(err) {
 			console.log(err);
