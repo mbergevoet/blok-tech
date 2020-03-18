@@ -58,7 +58,7 @@ function search(req, res, next) {
     if(req.session.hobby1) {
       db.collection('usersCollection').find({"hobby1" : hob}).toArray(done)
     } else {
-      db.collection('usersCollection').find({"hobby1" : hob}).toArray(done)
+      // db.collection('usersCollection').find({"hobby1" : hob}).toArray(done)
       res.render('pages/return.ejs')
       (done)
     }
