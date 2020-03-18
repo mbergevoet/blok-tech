@@ -54,11 +54,7 @@ app.get('/main', function(req,res){
       res.render('pages/main.ejs');
   }
 })
-app.post('/result', urlencodedParser, search)
-
-
-app.get('/return', (req, res) =>   
-res.render('pages/return.ejs'))
+app.post('/result', urlencodedParser, search) 
 app.get('/result', (req, res, next) => {
     let hob = req.session.hobby1
     if (hob) {
@@ -84,7 +80,6 @@ function search(req, res, next) {
   if(hob) { 
     db.collection('usersCollection').find({"hobby1" : hob}).toArray(done)
   } else {
-    db.collection('usersCollection').find({"hobby1" : hob}).toArray
     res.render('/return')
     
   }
@@ -97,26 +92,9 @@ function search(req, res, next) {
   }
 }
 
-app.get('/result',function(req,res){
-  let hob = req.session.hobby1
-  if(hob) {
-      db.collection('usersCollection')
-        .find({"hobby1": hob}).toArray(done)
-      function done(err, data) {
-           if (err) {
-              next(err)
-           } else {
-              res.redirect('/result')
-           }
-       }
-  }
-  else {
-      res.render('pages/main.ejs')
-  }
-})
-
 app.get('/return',function(req,res){
   if (req.session.hobby1) {
+        // res.render('pages/return.ejs')
         req.session.destroy(function(err) {
         if (err) console.log(err)
     })
