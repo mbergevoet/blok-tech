@@ -13,8 +13,8 @@ node index.js
 ```
 
 ## Datastructuur
+<img src="https://i.imgur.com/W6psAP4.png" alt="drawing" width="350"/>
 MongoDB Compass users > usersCollection
-!<img src="https://i.imgur.com/W6psAP4.png" alt="drawing" width="300"/>
 
 ## Packetes
 Zie package.json voor de dependecies.
