@@ -11,6 +11,7 @@ git clone https://github.com/mbergevoet/blok-tech
 npm install
 node index.js
 ```
+Ook heb je het .env bestand nodig
 
 ## Datastructuur
 <img src="https://i.imgur.com/W6psAP4.png" alt="drawing" width="350"/>
