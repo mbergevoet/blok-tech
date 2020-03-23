@@ -12,6 +12,11 @@ npm install
 node index.js
 ```
 
+## Datastructuur
+MongoDB Compass users > usersCollection
+
+
+
 ## Packetes
 Zie package.json voor de dependecies.
 
