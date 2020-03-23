@@ -14,7 +14,7 @@ node index.js
 
 ## Datastructuur
 MongoDB Compass users > usersCollection
-<img src="https://i.imgur.com/W6psAP4.png" alt="drawing" width="300"/>
+!<img src="https://i.imgur.com/W6psAP4.png" alt="drawing" width="300"/>
 
 ## Packetes
 Zie package.json voor de dependecies.
