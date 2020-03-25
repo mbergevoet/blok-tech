@@ -22,7 +22,14 @@ Ook heb je het .env bestand nodig
 MongoDB Compass users > usersCollection
 
 ## Packetes
-Zie package.json voor de dependecies.
+1. express
+1. express-session
+1. body-parser
+1. path
+1. mongodb
+1. dotenv
+
+Zie ook package.json voor de dependecies.
 
 
 ## Concept
