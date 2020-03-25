@@ -92,6 +92,11 @@ function search(req, res, next) {
   }
 }
 
+app.post('/update', urlencodedParser, update) 
+app.get('/update', (req, res) =>  
+  res.render('pages/update.ejs'))
+
+
 app.get('/return',function(req,res){
   if (req.session.hobby1) {
         // res.render('pages/return.ejs')
@@ -102,8 +107,27 @@ app.get('/return',function(req,res){
    res.redirect('/main')
 })
 
+function update(req, res, next){
+  let id = req.body.id
+  let name = req.body.name
+  let filter = {_id: mongo.ObjectId(id)};
+  let update = {$set: {name: name}}
+  db.collection('usersCollection').updateOne(filter, update)
+  db.collection('usersCollection').find().toArray
+  (done)
+
+  function done(err, data) {
+        if (err) {
+          next(err)
+        } else {
+          res.redirect('/result')
+          console.log('redirected')
+        }
+      }
+}
+
 function notFound(req, res) {
   res.status(404).render('not-found.ejs')
 }
 
-app.listen(port, () => console.log(`Server is running succesfully on port ${ port }!`))
+app.listen(port, () => console.log(`Server is running succesfully on port ${ port }`))
