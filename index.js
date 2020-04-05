@@ -28,10 +28,10 @@ mongo.MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true
 
 //Middleware
 app.use(express.static('static'))
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(urlencodedParser);
 app.use('/static', express.static('static'))
-.use(session({ resave: false, saveUninitialized: true, secret: process.env.SESSION_SECRET }))
+  .use(session({ resave: false, saveUninitialized: true, secret: process.env.SESSION_SECRET }))
 
 //Functions
 app.set('views', path.join(__dirname, 'views'))
@@ -42,122 +42,123 @@ app.post('/selectuser', urlencodedParser, selectuser)
 app.get('/selectuser', (req, res) =>
   res.render('pages/selectuser.ejs'))
 
-app.get('/main', function(req,res){
-  let hob = req.session.hobby1
-  if(hob) {
-      db.collection('usersCollection')
-        .find({"hobby1": hob}).toArray(done)
-      function done(err, data) {
-           if (err) {
-              next(err)
-           } else {
-              res.redirect('/result')
-           }
-       }
-  }
-  else {
-      res.render('pages/main.ejs');
-  }
-})
-
-function selectuser(req, res, next){
+function selectuser(req, res, next) {
   //pakt de value van het select element
   //voert het in de database om het id op te halen
   //slaat het id op in de session
-  currentUser = req.body.user
-  if(currentUser){
-    let test = db.collection('usersCollection').findOne({"name" : currentUser}).toArray(done)
-    console.log(test)
-  } else{
+  let currentUser = req.body.user
+  if (currentUser) {
+    let data = db.collection('usersCollection').findOne({ "name": currentUser })
+    req.session.user = data._id
+    console.log(data)
+    (done)
+  } else {
     res.redirect('/selectuser')
+  }
+  function done(err) {
+    if (err) {
+      next(err)
+    } else {
+      res.redirect('/main')
+    }
+  }
+}
+
+app.get('/main', function (req, res) {
+  let hob = req.session.hobby1
+  if (hob) {
+    db.collection('usersCollection')
+      .find({ "hobby1": hob }).toArray(done)
+    function done(err, data) {
+      if (err) {
+        next(err)
+      } else {
+        res.redirect('/result')
+      }
+    }
+  }
+  else {
+    res.render('pages/main.ejs');
+  }
+})
+
+app.post('/result', urlencodedParser, search)
+app.get('/result', (req, res, next) => {
+  let hob = req.session.hobby1
+  // let id = req.session._id
+  if (hob) {
+    db.collection('usersCollection')
+      .find({ "hobby1": hob }).toArray(done)
+  } else {
+    res.redirect('/return')
   }
   function done(err, data) {
     if (err) {
       next(err)
     } else {
-       res.redirect('pages/main.ejs')
+      res.render('pages/result.ejs', { data: data })
     }
   }
-}
-
-app.post('/result', urlencodedParser, search) 
-app.get('/result', (req, res, next) => {
-    let hob = req.session.hobby1
-    // let id = req.session._id
-    if (hob) {
-       db.collection('usersCollection')
-           .find({"hobby1" : hob}).toArray(done)
-    } else {
-       res.redirect('/return')
-    }
-    function done(err, data) {
-      if (err) {
-        next(err)
-      } else {
-         res.render('pages/result.ejs', {data: data})
-      }
-    }
 })
 
 function search(req, res, next) {
   if (req.body.hobby1) {
     req.session.hobby1 = req.body.hobby1
   }
-  let hob = req.session.hobby1 
-  if(hob) { 
-    db.collection('usersCollection').find({"hobby1" : hob}).toArray(done)
+  let hob = req.session.hobby1
+  if (hob) {
+    db.collection('usersCollection').find({ "hobby1": hob }).toArray(done)
   } else {
     res.render('/return')
-    
+
   }
   function done(err, data) {
     if (err) {
       next(err)
     } else {
-      res.render('pages/result.ejs', {data: data})
+      res.render('pages/result.ejs', { data: data })
     }
   }
 }
 
-app.post('/update', urlencodedParser, update) 
-app.get('/update', (req, res) =>  
+app.post('/update', urlencodedParser, update)
+app.get('/update', (req, res) =>
   res.render('pages/update.ejs'))
 
 
-app.get('/return',function(req,res){
+app.get('/return', function (req, res) {
   if (req.session.hobby1) {
-        // res.render('pages/return.ejs')
-        req.session.destroy(function(err) {
-        if (err) console.log(err)
+    // res.render('pages/return.ejs')
+    req.session.destroy(function (err) {
+      if (err) console.log(err)
     })
-   }
-   res.redirect('/main')
+  }
+  res.redirect('/main')
 })
 
-function update(req, res, next){
+function update(req, res, next) {
   //kijkt of het id gelijk is aan de gebruiker die je wilt veranderen
   //waar? ga door en update
-  //niet waar? error pagina
-  let id = req.body.id
+  //niet waar? error pagina 
   let name = req.body.name
-  let filter = {_id: mongo.ObjectId(id)};
-  let update = {$set: {name: name}}
+  let filter = req.session.user
+  let update = { $set: { name: name } }
   db.collection('usersCollection').updateOne(filter, update)
   db.collection('usersCollection').find().toArray
-  (done)
+    (done)
 
   function done(err, data) {
-        if (err) {
-          next(err)
-        } else {
-          res.redirect('/result')
-          console.log('redirected')
-        }
-      }
+    if (err) {
+      next(err)
+    } else {
+      res.redirect('/result')
+      console.log('redirected')
+    }
+  }
 }
 
 function notFound(req, res) {
   res.status(404).render('not-found.ejs')
 }
 
-app.listen(port, () => console.log(`Server is running succesfully on port ${ port }`))
+app.listen(port, () => console.log(`Server is running succesfully on port ${port}`))
