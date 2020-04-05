@@ -43,28 +43,8 @@ app.post('/selectuser', urlencodedParser, selectuser)
 app.get('/selectuser', (req, res) =>
   res.render('pages/selectuser.ejs'))
 
+  //Deze function is met behulp van sergio eijben geschreven
 function selectuser(req, res, next) {
-  // //pakt de value van het select element
-  // //voert het in de database om het id op te halen
-  // //slaat het id op in de session
-  // let currentUser = req.body.user
-  // if (currentUser) {
-  //   let test = db.collection('usersCollection').findOne({ "name": currentUser })
-  //   req.session.user = test._id
-  //   console.log(test)
-  //   (done)
-  // } else {
-  //   res.redirect('/selectuser')
-  // }
-  // function done(err, data) {
-  //   if (err) {
-  //     next(err)
-  //   } else {
-  //     res.redirect('/main', { data: data })
-  //   }
-  // }
-
-  //code met behulp van sergio eijben geschreven
     db.collection('usersCollection').findOne({
       name: req.body.user
     }).then(data => {
@@ -148,10 +128,6 @@ app.get('/return', function (req, res) {
 })
 
 function update(req, res, next) {
-  //kijkt of het id gelijk is aan de gebruiker die je wilt veranderen
-  //waar? ga door en update
-  //niet waar? error pagina 
-  
   let newName = req.body.name
   let filter = {_id: ObjectID(req.session.currentUser)}
   let updatedValue = {"name": newName}
