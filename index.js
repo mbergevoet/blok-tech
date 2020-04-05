@@ -8,6 +8,7 @@ const find = require('array-find')
 const urlencodedParser = bodyParser.urlencoded({
   extended: true
 });
+const ObjectID = require('mongodb').ObjectID;
 const multer = require('multer')
 const mongo = require('mongodb')
 const app = express()
@@ -96,7 +97,6 @@ app.get('/main', function (req, res) {
 app.post('/result', urlencodedParser, search)
 app.get('/result', (req, res, next) => {
   let hob = req.session.hobby1
-  // let id = req.session._id
   if (hob) {
     db.collection('usersCollection')
       .find({ "hobby1": hob }).toArray(done)
@@ -151,13 +151,13 @@ function update(req, res, next) {
   //kijkt of het id gelijk is aan de gebruiker die je wilt veranderen
   //waar? ga door en update
   //niet waar? error pagina 
-  let name = req.body.name
-  let filter = req.session.currentUser
-  let update = { $set: { name: name } }
-  db.collection('usersCollection').updateOne(filter, update)
-  db.collection('usersCollection').find().toArray
-  (done)
-
+  
+  let newName = req.body.name
+  let filter = {_id: ObjectID(req.session.currentUser)}
+  let updatedValue = {"name": newName}
+  db.collection('usersCollection').updateOne(filter, {$set:updatedValue})
+  db.collection('usersCollection').find().toArray(done)
+  
   function done(err, data) {
     if (err) {
       next(err)
