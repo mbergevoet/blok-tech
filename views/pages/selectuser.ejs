@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <%- include('../partials/head') %>
+</head>
+<header>
+    <%- include('../partials/header') %>
+</header>
+
+<body>
+    <main>
+        <form id="searchForm" action="/main" method="post">
+            <label>Kies een gebruiker om in te loggen</label>
+            <select name="user" id="userSelector">
+                <option selected="selected" value="niks">Kies gebruiker</option>
+                <option value="Klaas">Klaas</option>
+                <option value="Piet">Piet</option>
+                <option value="Jan">Jan</option>
+                <option value="Gerben">Gerben</option>
+                <option value="Sjaak">Sjaak</option>
+                <option value="Mark">Mark</option>
+                <option value="Johan">Johan</option>
+            </select>
+            <button type="submit">Selecteer en ga door</button>
+        </form>
+    </main>
+</body>
+<footer>
+    <section>
+        <p>Indeling en Styling door Merlijn Bergevoet 2020 &copy;</p>
+    </section>
+</footer>
+
+</html>

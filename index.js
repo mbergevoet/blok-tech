@@ -1,6 +1,6 @@
 // Dependencies
 const express = require('express')
-var session = require('express-session');
+var session = require('express-session')
 const slug = require('slug')
 const bodyParser = require('body-parser')
 const path = require('path')
@@ -16,7 +16,7 @@ const port = 8000
 
 // Mongodb connection
 let db = null
-const uri = "mongodb+srv://" + process.env.DB_USER + ":" + process.env.DB_PASSWORD + "@" + process.env.DB_HOST;
+const uri = "mongodb+srv://" + process.env.DB_USER + ":" + process.env.DB_PASSWORD + "@" + process.env.DB_HOST
 
 mongo.MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }, function (err, client) {
   if (err) {
@@ -37,6 +37,11 @@ app.use('/static', express.static('static'))
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 app.get('/error', notFound)
+
+app.post('/selectuser', urlencodedParser, selectuser)
+app.get('/selectuser', (req, res) =>
+  res.render('pages/selectuser.ejs'))
+
 app.get('/main', function(req,res){
   let hob = req.session.hobby1
   if(hob) {
@@ -54,9 +59,31 @@ app.get('/main', function(req,res){
       res.render('pages/main.ejs');
   }
 })
+
+function selectuser(req, res, next){
+  //pakt de value van het select element
+  //voert het in de database om het id op te halen
+  //slaat het id op in de session
+  currentUser = req.body.user
+  if(currentUser){
+    let test = db.collection('usersCollection').findOne({"name" : currentUser}).toArray(done)
+    console.log(test)
+  } else{
+    res.redirect('/selectuser')
+  }
+  function done(err, data) {
+    if (err) {
+      next(err)
+    } else {
+       res.redirect('pages/main.ejs')
+    }
+  }
+}
+
 app.post('/result', urlencodedParser, search) 
 app.get('/result', (req, res, next) => {
     let hob = req.session.hobby1
+    // let id = req.session._id
     if (hob) {
        db.collection('usersCollection')
            .find({"hobby1" : hob}).toArray(done)
@@ -108,6 +135,9 @@ app.get('/return',function(req,res){
 })
 
 function update(req, res, next){
+  //kijkt of het id gelijk is aan de gebruiker die je wilt veranderen
+  //waar? ga door en update
+  //niet waar? error pagina
   let id = req.body.id
   let name = req.body.name
   let filter = {_id: mongo.ObjectId(id)};

@@ -23,191 +23,9 @@
     <!--Filter balk-->
     <div id="filterBar">
       <h1>Filteren</h1>
-      <button id="activateDropdown1">Hobby 1</button>
-      <form class="filterForm" accept-charset="UTF-8" action="result.html" autocomplete="off" method="GET"
-        target="_top">
-        <div class="disabledDropdown1">
-          <div>
-            <label id="option" for="">
-              <input type="radio">
-              Sport
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Muziek
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Outdoor
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Koken
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Dansen
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Lezen
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Gamen
-            </label>
-          </div>
-          <div>
-            <label id="option" for="">
-              <input type="radio">
-              Development
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Films
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Fotografie
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              D.I.Y
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Huisdieren
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Sociale Media
-            </label>
-          </div>
-        </div>
-      </form>
-      <button id="activateDropdown2">Hobby 2</button>
-      <form class="filterForm" accept-charset="UTF-8" action="result.html" autocomplete="off" method="GET"
-        target="_top">
-        <div class="disabledDropdown2">
-          <div>
-            <label id="option" for="">
-              <input type="radio">
-              Sport
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Muziek
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Outdoor
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Koken
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Dansen
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Lezen
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Gamen
-            </label>
-          </div>
-          <div>
-            <label id="option" for="">
-              <input type="radio">
-              Development
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Films
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Fotografie
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              D.I.Y
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Huisdieren
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Sociale Media
-            </label>
-          </div>
-        </div>
-      </form>
-      <button id="activateDropdown3">Hobby 3</button>
-      <form class="filterForm" accept-charset="UTF-8" action="result.html" autocomplete="off" method="GET"
-        target="_top">
-        <div class="disabledDropdown3">
-          <div>
-            <label id="option" for="">
-              <input type="radio">
-              Sport
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Muziek
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Outdoor
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Koken
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Dansen
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Lezen
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Gamen
-            </label>
-          </div>
-          <div>
-            <label id="option" for="">
-              <input type="radio">
-              Development
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Films
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Fotografie
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              D.I.Y
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Huisdieren
-            </label>
-            <label id="option" for="">
-              <input type="radio">
-              Sociale Media
-            </label>
-          </div>
-        </div>
+      <form id="hobbyFilter" accept-charset="UTF-8" action="result.html" autocomplete="off" method="GET"
+        target="_blank">
+        <input id="filterInput" type="text" placeholder="Typ een hobby">
       </form>
       <form id="age" accept-charset="UTF-8" action="result.html" autocomplete="off" method="GET" target="_blank">
         <select>
@@ -229,36 +47,60 @@
       </form>
     </div>
     <!--Profiel resultaten-->
-    <div id="matchList">
-      <div id="profileTile" class="resultTile">
-        <img src="images/frauw.png" alt="man">
-        <div>
-          <h1>Claire, 24</h1>
-          <p><span>Hobby's:</span> Fotografie, Lezen, Outdoor</p>
-          <p><span>Opleiding:</span> Journalistiek</p>
-          <ul class="actionButtons">
-            <li><button class="likeButton"></button></li>
-            <li><button class="discardButton"></button></li>
-          </ul>
+    <ul id="matchList">
+      <li>
+        <div id="profileTile" class="resultTile">
+          <img src="images/frauw.png" alt="man">
+          <div>
+            <h1>Claire, 24</h1>
+            <p><span>Hobby's:</span>
+              <ul id="hobbyProfile">
+                <li>Fotografie</li>
+                <li>Lezen</li>
+                <li>Outdoor</li>
+              </ul>
+            </p>
+            <p><span>Opleiding:</span> Journalistiek</p>
+            <ul class="actionButtons">
+              <li><button class="likeButton"></button></li>
+              <li><button class="discardButton"></button></li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div id="profileTile" class="resultTile">
-        <img src="images/frauw2.png" alt="man">
-        <div>
-          <h1>Susan, 23</h1>
-          <p><span>Hobby's:</span> D.I.Y., Muziek, Lezen </p>
-          <p><span>Opleiding:</span> Vertaler</p>
-          <ul class="actionButtons">
-            <li><button class="likeButton"></button></li>
-            <li><button class="discardButton"></button></li>
-          </ul>
+      </li>
+      <li>
+        <div id="profileTile" class="resultTile">
+          <img src="images/frauw2.png" alt="man">
+          <div>
+            <h1>Susan, 23</h1>
+            <p><span>Hobby's:</span>
+              <ul id="hobbyProfile">
+                <li>D.I.Y.</li>
+                <li>Muziek</li>
+                <li>Lezen</li>
+              </ul>
+            </p>
+            <p><span>Opleiding:</span> Vertaler</p>
+            <ul class="actionButtons">
+              <li><button class="likeButton"></button></li>
+              <li><button class="discardButton"></button></li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div id="profileTile" class="resultTile">
+      </li>
+
+
+      <!-- <div id="profileTile" class="resultTile">
         <img src="images/frauw3.png" alt="man">
         <div>
           <h1>Betty, 23</h1>
-          <p><span>Hobby's:</span> Sociale Media, Films, Koken </p>
+          <p><span>Hobby's:</span> 
+            <ul id="hobbyProfile">
+              <li>Sociale Media</li>
+              <li>Films</li>
+              <li>Koken</li>
+            </ul>
+          </p>
           <p><span>Opleiding:</span> Management</p>
           <ul class="actionButtons">
             <li><button class="likeButton"></button></li>
@@ -270,15 +112,20 @@
         <img src="images/frauw4.png" alt="man">
         <div>
           <h1>Mia, 22</h1>
-          <p><span>Hobby's:</span> Sport, D.I.Y., Dansen </p>
+          <p><span>Hobby's:</span> 
+            <ul id="hobbyProfile">
+              <li>Sport</li>
+              <li>D.I.Y.</li>
+              <li>Dansen</li>
+            </ul>
           <p><span>Opleiding:</span> Kunstacedemie</p>
           <ul class="actionButtons">
             <li><button class="likeButton"></button></li>
             <li><button class="discardButton"></button></li>
           </ul>
         </div>
-      </div>
-    </div>
+      </div> -->
+    </ul>
   </main>
   <footer>
     <section>
