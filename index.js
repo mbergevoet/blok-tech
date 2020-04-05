@@ -43,25 +43,36 @@ app.get('/selectuser', (req, res) =>
   res.render('pages/selectuser.ejs'))
 
 function selectuser(req, res, next) {
-  //pakt de value van het select element
-  //voert het in de database om het id op te halen
-  //slaat het id op in de session
-  let currentUser = req.body.user
-  if (currentUser) {
-    let data = db.collection('usersCollection').findOne({ "name": currentUser })
-    req.session.user = data._id
-    console.log(data)
-    (done)
-  } else {
-    res.redirect('/selectuser')
-  }
-  function done(err) {
-    if (err) {
-      next(err)
-    } else {
-      res.redirect('/main')
-    }
-  }
+  // //pakt de value van het select element
+  // //voert het in de database om het id op te halen
+  // //slaat het id op in de session
+  // let currentUser = req.body.user
+  // if (currentUser) {
+  //   let test = db.collection('usersCollection').findOne({ "name": currentUser })
+  //   req.session.user = test._id
+  //   console.log(test)
+  //   (done)
+  // } else {
+  //   res.redirect('/selectuser')
+  // }
+  // function done(err, data) {
+  //   if (err) {
+  //     next(err)
+  //   } else {
+  //     res.redirect('/main', { data: data })
+  //   }
+  // }
+
+  //code met behulp van sergio eijben geschreven
+    db.collection('usersCollection').findOne({
+      name: req.body.user
+    }).then(data => {
+      req.session.currentUser = data._id;
+      console.log(req.session.currentUser)
+      res.redirect('/main');
+    }).catch(() => {
+      res.redirect('/selectuser')
+    })
 }
 
 app.get('/main', function (req, res) {
@@ -141,11 +152,11 @@ function update(req, res, next) {
   //waar? ga door en update
   //niet waar? error pagina 
   let name = req.body.name
-  let filter = req.session.user
+  let filter = req.session.currentUser
   let update = { $set: { name: name } }
   db.collection('usersCollection').updateOne(filter, update)
   db.collection('usersCollection').find().toArray
-    (done)
+  (done)
 
   function done(err, data) {
     if (err) {
