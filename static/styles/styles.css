@@ -201,7 +201,7 @@ main #searchForm {
 
 #activateDropdown1:hover, #activateDropdown2:hover{
     cursor: pointer;
-    background-color: lightgray;
+    background-color: rgb(236, 236, 236);
     transition: 0.3s;
 }
 
@@ -277,7 +277,13 @@ input[type=range]::-webkit-slider-thumb {
     color: lightgray;
     margin-top: 4rem;
     padding: 1.5rem;
-    
+}
+
+.hobbyList{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .hobby {
@@ -310,7 +316,7 @@ input[type=range]::-webkit-slider-thumb {
 
 #profileTile > div:nth-child(2){
     background-color: var(--neutral-color);
-    padding: 2rem 2rem 1rem 2rem;
+    padding: 2rem;
 }
 
 #profileTile > div:nth-child(2) > *{
@@ -471,19 +477,12 @@ footer section p {
         padding: 3rem 0rem 5rem 0rem;
     }
 
-    /* #hobbyList{
-        max-height: 9rem;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-    } */
-
     #searchForm{
         margin: 0rem 0.5rem;
     }
 
     #profileTile {
-        margin: 0rem 2rem;
+        margin: 2rem 2rem;
     }
 
     .disabledDropdown1, .disabledDropdown2{
@@ -577,8 +576,12 @@ footer section p {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content: end;
         list-style: none;
+    }
+
+    #hobbyList div:nth-child(2){
+        margin-left: 1rem;
     }
 
     /* #hobby */
