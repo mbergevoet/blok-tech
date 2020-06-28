@@ -2,137 +2,144 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Results</title>
-  <link rel="stylesheet" href="styles/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Results</title>
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>
-  <header>
-    <div><img src="images/amatch-logo2.png" alt=""></div>
-    <nav>
-      <ul>
-        <li><a href="myprofile.html">My Profile</a></li>
-        <li><a href="mychats.html">My Chats</a></li>
-        <li><a href="index.html">Matchmaking</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <!--Filter balk-->
-    <div id="filterBar">
-      <h1>Filteren</h1>
-      <form id="hobbyFilter" accept-charset="UTF-8" action="result.html" autocomplete="off" method="GET"
-        target="_blank">
-        <input id="filterInput" type="text" placeholder="Typ een hobby">
-      </form>
-      <form id="age" accept-charset="UTF-8" action="result.html" autocomplete="off" method="GET" target="_blank">
-        <select>
-          <option selected="selected" value="1">Leeftijd</option>
-          <option value="2">18</option>
-          <option value="3">19</option>
-          <option value="4">20</option>
-          <option value="5">21</option>
-          <option value="6">22</option>
-          <option value="7">23</option>
-          <option value="8">24</option>
-          <option value="9">25</option>
-          <option value="10">26</option>
-          <option value="11">27</option>
-          <option value="12">28</option>
-          <option value="13">29</option>
-          <option value="14">30</option>
-        </select>
-      </form>
-    </div>
-    <!--Profiel resultaten-->
-    <ul id="matchList">
-      <li>
-        <div id="profileTile" class="resultTile">
-          <img src="images/frauw.png" alt="man">
-          <div>
-            <h1>Claire, 24</h1>
-            <p><span>Hobby's:</span>
-              <ul id="hobbyProfile">
-                <li>Fotografie</li>
-                <li>Lezen</li>
-                <li>Outdoor</li>
-              </ul>
-            </p>
-            <p><span>Opleiding:</span> Journalistiek</p>
-            <ul class="actionButtons">
-              <li><button class="likeButton"></button></li>
-              <li><button class="discardButton"></button></li>
+    <header>
+        <div><img src="images/amatch-logo2.png" alt=""></div>
+        <nav>
+            <ul>
+                <li><a href="myprofile.html">My Profile</a></li>
+                <li><a href="mychats.html">My Chats</a></li>
+                <li><a href="index.html">Matchmaking</a></li>
             </ul>
-          </div>
+        </nav>
+    </header>
+    <main>
+        <!--Filter balk-->
+        <div id="filterBar">
+            <h1>Filteren</h1>
+            <form class="hobbyFilter" accept-charset="UTF-8" action="result.html" autocomplete="off" method="GET"
+                target="_blank">
+                <input class="filterInput" type="text" placeholder="Typ een hobby">
+            </form>
+            <form id="age" accept-charset="UTF-8" action="result.html" autocomplete="off" method="GET" target="_blank">
+                <select>
+                    <option selected="selected" value="1">Leeftijd</option>
+                    <option value="2">18</option>
+                    <option value="3">19</option>
+                    <option value="4">20</option>
+                    <option value="5">21</option>
+                    <option value="6">22</option>
+                    <option value="7">23</option>
+                    <option value="8">24</option>
+                    <option value="9">25</option>
+                    <option value="10">26</option>
+                    <option value="11">27</option>
+                    <option value="12">28</option>
+                    <option value="13">29</option>
+                    <option value="14">30</option>
+                </select>
+            </form>
         </div>
-      </li>
-      <li>
-        <div id="profileTile" class="resultTile">
-          <img src="images/frauw2.png" alt="man">
-          <div>
-            <h1>Susan, 23</h1>
-            <p><span>Hobby's:</span>
-              <ul id="hobbyProfile">
-                <li>D.I.Y.</li>
-                <li>Muziek</li>
-                <li>Lezen</li>
-              </ul>
-            </p>
-            <p><span>Opleiding:</span> Vertaler</p>
-            <ul class="actionButtons">
-              <li><button class="likeButton"></button></li>
-              <li><button class="discardButton"></button></li>
-            </ul>
-          </div>
-        </div>
-      </li>
-
-
-      <!-- <div id="profileTile" class="resultTile">
-        <img src="images/frauw3.png" alt="man">
-        <div>
-          <h1>Betty, 23</h1>
-          <p><span>Hobby's:</span> 
-            <ul id="hobbyProfile">
-              <li>Sociale Media</li>
-              <li>Films</li>
-              <li>Koken</li>
-            </ul>
-          </p>
-          <p><span>Opleiding:</span> Management</p>
-          <ul class="actionButtons">
-            <li><button class="likeButton"></button></li>
-            <li><button class="discardButton"></button></li>
-          </ul>
-        </div>
-      </div>
-      <div id="profileTile" class="resultTile">
-        <img src="images/frauw4.png" alt="man">
-        <div>
-          <h1>Mia, 22</h1>
-          <p><span>Hobby's:</span> 
-            <ul id="hobbyProfile">
-              <li>Sport</li>
-              <li>D.I.Y.</li>
-              <li>Dansen</li>
-            </ul>
-          <p><span>Opleiding:</span> Kunstacedemie</p>
-          <ul class="actionButtons">
-            <li><button class="likeButton"></button></li>
-            <li><button class="discardButton"></button></li>
-          </ul>
-        </div>
-      </div> -->
-    </ul>
-  </main>
-  <footer>
-    <section>
-      <p>Indeling en Styling door Merlijn Bergevoet 2020 &copy;</p>
-    </section>
-  </footer>
+        <!--Profiel resultaten-->
+        <!-- <ul id="matchList"></ul> -->
+        <ul id="hobbyList">
+            <li class="hobby">
+                <span>Lezen</span>
+                <div id="profileTile" class="resultTile">
+                    <img src="images/frauw.png" alt="man">
+                    <div>
+                        <h1>Claire, 24</h1>
+                        <!-- <p><span>Hobby's:</span>
+                        <ul id="hobbyProfile">
+                            <li>Fotografie</li>
+                            <li>Lezen</li>
+                            <li>Outdoor</li>
+                        </ul>
+                        </p> -->
+                        <p>Opleiding: Journalistiek</p>
+                        <ul class="actionButtons">
+                            <li><button class="likeButton"></button></li>
+                            <li><button class="discardButton"></button></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="hobby">
+                <span>Dansen</span>
+                <div id="profileTile" class="resultTile">
+                    <img src="images/frauw2.png" alt="man">
+                    <div>
+                        <h1>Susan, 23</h1>
+                        <!-- <p><span>Hobby's:</span>
+                        <ul id="hobbyProfile">
+                            <li>D.I.Y.</li>
+                            <li>Muziek</li>
+                            <li>Lezen</li>
+                        </ul>
+                        </p> -->
+                        <p>Opleiding: Vertaler</p>
+                        <ul class="actionButtons">
+                            <li><button class="likeButton"></button></li>
+                            <li><button class="discardButton"></button></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="hobby">
+                <span>Sporten</span>
+                <div id="profileTile" class="resultTile">
+                    <img src="images/frauw4.png" alt="man">
+                    <div>
+                        <h1>Mia, 22</h1>
+                        <!-- <p><span>Hobby's:</span>
+                        <ul id="hobbyProfile">
+                            <li>Sport</li>
+                            <li>D.I.Y.</li>
+                            <li>Dansen</li>
+                        </ul> -->
+                        <p>Opleiding: Kunstacedemie</p>
+                        <ul class="actionButtons">
+                            <li><button class="likeButton"></button></li>
+                            <li><button class="discardButton"></button></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li class="hobby">
+                <span>Muziek</span>
+                <div id="profileTile" class="resultTile">
+                    <img src="images/frauw3.png" alt="man">
+                    <div>
+                        <h1>Betty, 23</h1>
+                        <!-- <p><span>Hobby's:</span>
+                        <ul id="hobbyProfile">
+                            <li>Sociale Media</li>
+                            <li>Films</li>
+                            <li>Koken</li>
+                        </ul>
+                        </p> -->
+                        <p>Opleiding: Management</p>
+                        <ul class="actionButtons">
+                            <li><button class="likeButton"></button></li>
+                            <li><button class="discardButton"></button></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </main>
+    <footer>
+        <section>
+            <p>Indeling en Styling door Merlijn Bergevoet 2020 &copy;</p>
+        </section>
+    </footer>
+    <script src="js/filter.js"></script>
 </body>
-<script src="js/script.js"></script>
 
 </html>

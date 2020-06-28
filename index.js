@@ -137,6 +137,7 @@ function update(req, res, next) {
   function done(err, data) {
     if (err) {
       next(err)
+      console.log('Verkeerde gebruiker geselecteerd')
     } else {
       res.redirect('/result')
       console.log('redirected')
