@@ -8,6 +8,7 @@ filterInput.addEventListener("keyup", function(e) {
     filterList(e.target.value);
 })
 
+// Closure, function in een function waarbij filterValue wordt gepakt uit de buitenste
 const filterList = filterValue => {
     filterValue = filterValue.toLowerCase();
     console.log(filterValue);
@@ -22,12 +23,12 @@ const filterList = filterValue => {
     });
 };
 
+// Bron:
+//  GTCoding. (2019, November 26). How To Add Search Functionality To Select Box (HTML, CSS & Vanilla JS). Retrieved 26 June 2020, from https://www.youtube.com/watch?v=VZzWzRVXPcQ
+
+
 // TODO
 // High order functions schrijven ipv dit alles
 // Like knop handler
-// Keypress event voor live filter function
-// html li uitlezen zodat filteren mogelijk is
-//map filter of reduce
-//Array maken van li met hobbies, die array filteren met filter()
 
 // https://codepen.io/CiTA/pen/PPJpOG

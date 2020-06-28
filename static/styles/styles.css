@@ -284,6 +284,10 @@ input[type=range]::-webkit-slider-thumb {
     display: block;
 }
 
+.hobby > span {
+    display: none;
+}
+
 #profileTile{
     margin: 2rem 1rem;
 }
@@ -292,7 +296,7 @@ input[type=range]::-webkit-slider-thumb {
     border-radius: 10px;
 }
 
-#profileTile img:nth-child(1){
+#profileTile > img:nth-child(1){
     width: 90%;
     height: auto;
     display: block;
@@ -317,15 +321,16 @@ input[type=range]::-webkit-slider-thumb {
     font-size: 1.9rem;
 }
 
-.imagePreviewContainer {
+.imagePreview {
     margin: 0 auto;
+    display: none;
     width: 400px;
     height: 300px;
-    display: none;
+    object-fit: cover;
 }
 
-.imagePreview {
-    height: 100%;
+.show{
+    display: block;
 }
 
 #hobbyProfile{
