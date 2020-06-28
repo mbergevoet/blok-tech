@@ -8,8 +8,9 @@ function showImage(){
         fileReader = new FileReader();
         imagePreview.classList.add("show");
         fileReader.addEventListener("load", function() {
-            console.log(this);
+// Gebruikt gemaakt van Context door .thisresult
             imagePreview.setAttribute("src", this.result);
+            console.log(this);
         });
         fileReader.readAsDataURL(selectedFile);
     } else {
